@@ -62,7 +62,11 @@ module GalleryItemsHelper
   
 private
 
-  def proportional_resize(width, height, max_width, max_height)   
+  def proportional_resize(width, height, max_width, max_height)
+    #FIXME why this two come nil    
+    width = 300 if width.nil?
+    height = 300 if height.nil?
+    
     aspectratio = max_width.to_f / max_height.to_f
     picratio = width.to_f / height.to_f
     scaleratio = picratio > aspectratio ? max_width.to_f / width : max_height.to_f / height   

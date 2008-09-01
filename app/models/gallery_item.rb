@@ -115,6 +115,10 @@ protected
   end
   
   def proportional_resize(options = {})
+    #FIXME why this two come nil
+    width = 300 if width.nil?
+    height = 300 if height.nil?
+    
     max_width = options[:max_width] ? options[:max_width].to_f : width.to_f
     max_height = options[:max_height] ? options[:max_height].to_f : height.to_f    
     aspect_ratio, pic_ratio = max_width / max_height.to_f, width.to_f / height.to_f
